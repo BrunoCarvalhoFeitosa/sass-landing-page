@@ -1,8 +1,7 @@
 "use client"
 import { useState } from "react"
-import { SlideDown } from "react-slidedown"
+import { motion } from "framer-motion"
 import clsx from "clsx"
-import "react-slidedown/lib/slidedown.css"
 
 interface FaqItemProps {
   id: string
@@ -42,13 +41,14 @@ export const FaqItem = ({ id, answer, question, index }: FaqItemProps) => {
           <div className="g4 size-11/12 rounded-full shadow-300" />
         </div>
       </div>
-      <SlideDown>
-        {activeId === id && (
-          <div className="body-3 py-3.5 px-7">
-            {answer}
-          </div>
-        )}
-      </SlideDown>
+      <motion.div
+        initial={{ height: 0, opacity: 0 }}
+        animate={{ height: active ? "auto" : 0, opacity: active ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="body-3 py-3.5 px-7 overflow-hidden"
+      >
+        {answer}
+      </motion.div>
       <div className={clsx(
         "absolute -top-7 -bottom-7 left-0 right-0 opacity-0 rounded-3xl transition-opacity duration-500 g5 -z-1",
         active && "opacity-100"
