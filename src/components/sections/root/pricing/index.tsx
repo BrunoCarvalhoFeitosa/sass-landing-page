@@ -11,7 +11,7 @@ export const PricingSection = () => {
 
   return (
     <section>
-      <Element name="pricing">
+      <Element name="prices">
         <div className="container">
           <div className="pt-28 max-md:pt-16 pb-40 max-md:pb-32 mx-auto max-w-960 max-xl:max-w-4xl max-lg:border-none pricing-head_before relative border-l border-r border-s2 bg-s1/50">
             <div>
